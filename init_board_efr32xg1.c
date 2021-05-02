@@ -1,6 +1,6 @@
 /***************************************************************************//**
  * @file
- * @brief init_board.c
+ * @brief init_board_efr32xg1.c
  *******************************************************************************
  * # License
  * <b>Copyright 2018 Silicon Laboratories Inc. www.silabs.com</b>
@@ -25,18 +25,32 @@
 #include "board_features.h"
 #include "em_cmu.h"
 
+#include "em_cmu.h"
 
-#warning "WARNING: Custom boards contain no init code in initBoard. Please make sure you have created the init code needed for your board."
+#include "em_usart.h"
+//#include "mx25flash_spi.h"
+
+#include "bsp.h"
+
 void initBoard(void)
 {
+  // Enable clock for CRYOTIMER
+  CMU_ClockEnable(cmuClock_CRYOTIMER, true);
+  // Enable clock for PRS
+  CMU_ClockEnable(cmuClock_PRS, true);
+#ifdef FEATURE_EXP_HEADER_USART3
+  // Enable clock for USART3
+  CMU_ClockEnable(cmuClock_USART3, true);
+#else
   // Enable clock for USART0
   CMU_ClockEnable(cmuClock_USART0, true);
+#endif
   // Enable GPIO clock source
   CMU_ClockEnable(cmuClock_GPIO, true);
-  // Place custom board initialization code here.
-}
 
-
-void initVcomEnable(void)
-{
+  // Put the SPI flash into Deep Power Down mode for those radio boards where it is available
+  //MX25_init();
+  //MX25_DP();
+  // We must disable SPI communication
+  //MX25_deinit();
 }

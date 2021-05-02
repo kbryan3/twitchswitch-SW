@@ -110,7 +110,7 @@ int main(void)
   initBoard();
   /* Initialize application */
   initApp();
-  initVcomEnable();
+  //initVcomEnable();
   /* Start application */
   appMain(&config);
 }

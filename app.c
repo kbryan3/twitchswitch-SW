@@ -73,7 +73,11 @@ void appMain(gecko_configuration_t *pconfig)
       handle_ble_event(evt);
       if(initAccelFlag == 0)
       {
-    	  initAccelFlag = accelInit(evt);
+ //   	  initAccelFlag = accelInit(evt);
+      }
+      else
+      {
+ //   	  readAccel(evt);
       }
 //	  getTemperature(evt);
 //	  getPressure(evt);

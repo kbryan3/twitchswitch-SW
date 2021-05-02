@@ -31,12 +31,10 @@ void handle_ble_event(struct gecko_cmd_packet* evt)
 	         * units of (milliseconds * 1.6). */
 	    	BTSTACK_CHECK_RESPONSE(gecko_cmd_le_gap_set_advertise_timing(0, 400, 400, 0, 0));
 
-	    	gecko_cmd_system_set_tx_power(0);
+	    	gecko_cmd_system_set_tx_power(50);
 
 	        /* Start general advertising and enable connections. */
 	    	BTSTACK_CHECK_RESPONSE(gecko_cmd_le_gap_start_advertising(0, le_gap_general_discoverable, le_gap_connectable_scannable));
-
-	    	server_BLE_Address = gecko_cmd_system_get_bt_address()->address.addr;
 
 	        break;
 
@@ -58,22 +56,22 @@ void handle_ble_event(struct gecko_cmd_packet* evt)
 	         * in gatt.xml as "temperature_measurement". Also check that status_flags = 1, meaning that
 	         * the characteristic client configuration was changed (notifications or indications
 	         * enabled or disabled). */
-	        //if ((evt->data.evt_gatt_server_characteristic_status.characteristic == gattdb_temperature_measurement)
-	            //&& (evt->data.evt_gatt_server_characteristic_status.status_flags == 0x01)) {
-	         // if (evt->data.evt_gatt_server_characteristic_status.client_config_flags == 0x02) {
+	        if ((evt->data.evt_gatt_server_characteristic_status.characteristic == gattdb_accel_read)
+	            && (evt->data.evt_gatt_server_characteristic_status.status_flags == 0x01)) {
+	          if (evt->data.evt_gatt_server_characteristic_status.client_config_flags == 0x02) {
 
 	            /* Indications have been turned ON - start the repeating timer. The 1st parameter '32768'
 	             * tells the timer to run for 1 second (32.768 kHz oscillator), the 2nd parameter is
 	             * the timer handle and the 3rd parameter '0' tells the timer to repeat continuously until
 	             * stopped manually.*/
-	            //gecko_cmd_hardware_set_soft_timer(32768, 0, 0);
-	        //	  indicate_Temp_Flag = 1;
-	        //  } else if (evt->data.evt_gatt_server_characteristic_status.client_config_flags == 0x00) {
+	            gecko_cmd_hardware_set_soft_timer(32768, 0, 0);
+	        	indicate_Temp_Flag = 1;
+	          } else if (evt->data.evt_gatt_server_characteristic_status.client_config_flags == 0x00) {
 	            /* Indications have been turned OFF - stop the timer. */
-	            //gecko_cmd_hardware_set_soft_timer(0, 0, 0);
-	        //	  indicate_Temp_Flag = 0;
-	      //    }
-	     //   }
+	            gecko_cmd_hardware_set_soft_timer(0, 0, 0);
+	        	indicate_Temp_Flag = 0;
+	          }
+	        }
 	        break;
 	      case gecko_evt_le_connection_rssi_id:
 	    	  //response to a gecko_cmd_le_connection_get_rssi command

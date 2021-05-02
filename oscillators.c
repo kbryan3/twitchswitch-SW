@@ -20,6 +20,9 @@ void init_LFRCO()
 {
 	//enable oscillator LFXO
 	CMU_OscillatorEnable(cmuOsc_LFRCO, true, true);
+	CMU_ClockSelectSet(cmuClock_LFA, cmuSelect_LFRCO);
+	CMU_ClockSelectSet(cmuClock_LFB, cmuSelect_LFRCO);
+	CMU_ClockSelectSet(cmuClock_LFE, cmuSelect_LFRCO);
 }
 
 void init_LFXO()

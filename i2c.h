@@ -102,6 +102,18 @@ void initI2C1();
 //*****************************************************************************
 I2C_TransferReturn_TypeDef I2C1InitiateWriteReg(uint8_t addr,uint8_t reg, uint8_t data);
 
+//*****************************************************************************
+/// Functions used for doing a read of multiple registers in sequence
+///   Call the write to say which register to start and then a read to say
+///   how many registers
+///  @param addr - slave address, len - num of registers, reg - register to start
+///  @return pass/fail of write
+///
+//*****************************************************************************
+I2C_TransferReturn_TypeDef I2C1InitiateWrite(uint8_t addr, uint8_t reg);
+I2C_TransferReturn_TypeDef I2C1InitiateSeqRead(uint8_t addr, uint8_t len);
+
+
 void getPressure(struct gecko_cmd_packet* evt);
 I2C_TransferReturn_TypeDef DPS310_InitiateWrite(uint8_t reg);
 I2C_TransferReturn_TypeDef DPS310_InitiateWriteReg(uint8_t reg, uint8_t data);

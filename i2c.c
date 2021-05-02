@@ -541,6 +541,44 @@ I2C_TransferReturn_TypeDef DPS310_InitiateWrite(uint8_t reg)
 
 }
 
+I2C_TransferReturn_TypeDef I2C1InitiateWrite(uint8_t addr, uint8_t reg)
+{
+
+
+	I2C_TransferSeq_TypeDef *ptrToSeq;
+	uint8_t *write_buffer;
+	I2C_TransferReturn_TypeDef transferStatus;
+	write_buffer = getPtrToI2CWriteBuffer();
+	write_buffer[0] = reg;
+	ptrToSeq = getPtrToAccelSequence();
+	ptrToSeq->addr = addr;
+	ptrToSeq->flags = I2C_FLAG_WRITE;
+	ptrToSeq->buf[0].data = write_buffer;
+	ptrToSeq->buf[0].len = 1;
+	NVIC_EnableIRQ(I2C1_IRQn);
+	transferStatus = I2C_TransferInit(I2C1, ptrToSeq);
+	return transferStatus;
+
+}
+
+I2C_TransferReturn_TypeDef I2C1InitiateSeqRead(uint8_t addr, uint8_t len)
+{
+	I2C_TransferSeq_TypeDef *ptrToSeq;
+	uint8_t *write_buffer;
+	I2C_TransferReturn_TypeDef transferStatus;
+	write_buffer = getPtrToI2CWriteBuffer();
+	ptrToSeq = getPtrToSI7013Sequence();
+	ptrToSeq->addr = addr;
+	ptrToSeq->flags = I2C_FLAG_READ;
+	ptrToSeq->buf[0].data = write_buffer;
+	ptrToSeq->buf[0].len = len;
+	NVIC_EnableIRQ(I2C1_IRQn);
+	transferStatus = I2C_TransferInit(I2C1, ptrToSeq);
+	return transferStatus;
+}
+
+
+
 I2C_TransferReturn_TypeDef DPS310_InitiateWriteReg(uint8_t reg, uint8_t data)
 {
 

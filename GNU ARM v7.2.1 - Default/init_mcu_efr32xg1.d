@@ -1,4 +1,4 @@
-init_board.o: ../init_board.c \
+init_mcu_efr32xg1.o: ../init_mcu_efr32xg1.c \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\hardware\kit\common\halconfig/bsphalconfig.h \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty/hal-config.h \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty/board_features.h \
@@ -66,9 +66,16 @@ init_board.o: ../init_board.c \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty/hal-config-app-common.h \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\hardware\kit\common\bsp/bsp_bcp.h \
  ../hal-config.h ../board_features.h \
- C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_cmu.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_chip.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_system.h \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_gpio.h \
- C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_common.h
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_cmu.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_common.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_emu.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_rtcc.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\hardware\kit\common\bsp/bsp.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_usart.h \
+ ../init_mcu.h
 
 C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\hardware\kit\common\halconfig/bsphalconfig.h:
 
@@ -206,8 +213,22 @@ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\hardware\kit\common\bsp/b
 
 ../board_features.h:
 
-C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_cmu.h:
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_chip.h:
+
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_system.h:
 
 C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_gpio.h:
 
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_cmu.h:
+
 C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_common.h:
+
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_emu.h:
+
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_rtcc.h:
+
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\hardware\kit\common\bsp/bsp.h:
+
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_usart.h:
+
+../init_mcu.h:
