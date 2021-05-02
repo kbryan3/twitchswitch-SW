@@ -13,7 +13,7 @@
 #include "scheduler.h"
 #include "ble.h"
 
-#define ACCEL_ADDR 0x39 //MMA8452Q Address
+#define ACCEL_ADDR 0x38 //MMA8452Q Address
 
 enum accel_init_state
 {

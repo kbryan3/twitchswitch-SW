@@ -60,3 +60,23 @@ void I2C0_IRQHandler(void) {
 		 CORE_EXIT_CRITICAL();
 	 }
 }
+
+void I2C1_IRQHandler(void) {
+	// get the IRQ flags and'ed with what's enabled,
+	// see why we got here
+	 //uint32_t i2c_flags = I2C0->IF & I2C0->IEN;
+	 //uint32_t i2c_state = I2C0->STATE;
+	 //uint32_t i2c_status = I2C0->STATUS;
+	 // Shepherds the IC2 transfer along
+	 uint16_t transferStatus = I2C_Transfer(I2C1);
+	 if( transferStatus == i2cTransferDone )
+	 {
+		 //enters critical section
+		 CORE_DECLARE_IRQ_STATE;
+		 CORE_ENTER_CRITICAL();
+		 //set event for get temperature state machine
+		 schedulerSetEvent(I2C_TRANSFER_DONE_EVENT);
+		 // exit critical section
+		 CORE_EXIT_CRITICAL();
+	 }
+}
