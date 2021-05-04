@@ -74,6 +74,7 @@ void I2C1_IRQHandler(void) {
 		 //enters critical section
 		 CORE_DECLARE_IRQ_STATE;
 		 CORE_ENTER_CRITICAL();
+		 I2C_TRANSFER_DONE = 1;
 		 //set event for get temperature state machine
 		 schedulerSetEvent(I2C_TRANSFER_DONE_EVENT);
 		 // exit critical section

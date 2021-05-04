@@ -29,6 +29,8 @@
 
 
 uint8_t initAccelFlag;
+uint8_t I2C_TRANSFER_DONE;
+uint8_t mode; //00 - Standby, 01 - Jump, 10 - Sprint, 11 - Lift
 /* Main application */
 void appMain(gecko_configuration_t *pconfig)
 {
@@ -40,6 +42,7 @@ void appMain(gecko_configuration_t *pconfig)
   /* Initialize debug prints. Note: debug prints are off by default. See DEBUG_LEVEL in app.h */
   initLog();
   initAccelFlag = 0;
+  I2C_TRANSFER_DONE = 0;
   init_LFRCO();
   gpioInit();
   gpioLedSetOn();
@@ -63,6 +66,7 @@ void appMain(gecko_configuration_t *pconfig)
 #endif
   while (1) {
 
+	  mode = getDIPValue();
 	  struct gecko_cmd_packet* evt;
       if(!gecko_event_pending())
       {
@@ -70,14 +74,14 @@ void appMain(gecko_configuration_t *pconfig)
       }
 
       evt = gecko_wait_event();
-      handle_ble_event(evt);
+      handle_ble_event(evt, mode);
       if(initAccelFlag == 0)
       {
- //   	  initAccelFlag = accelInit(evt);
+    	//  initAccelFlag = accelInit(evt);
       }
       else
       {
- //   	  readAccel(evt);
+//    	  readAccel();
       }
 //	  getTemperature(evt);
 //	  getPressure(evt);

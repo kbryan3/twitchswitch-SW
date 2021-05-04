@@ -6,7 +6,7 @@
  */
 #include "accel.h"
 int16_t x,y,z;
-float cx,cy,cz;
+static float cx,cy,cz = 10;
 
 uint8_t accelInit(struct gecko_cmd_packet* evt)
 {
@@ -72,14 +72,15 @@ uint8_t accelInit(struct gecko_cmd_packet* evt)
 	return init;
 }
 
-void __attribute__((optimize("O0"))) readAccel(struct gecko_cmd_packet* evt)
+void __attribute__((optimize("O0"))) readAccel()
 {
+
 	enum accel_read_state state;
 	uint8_t* accel_buffer;
 	uint16_t acceleration;
 	static enum accel_read_state next_state = DPS_WRITE_TO_X_REG;
 	state = next_state;
-	if(BGLIB_MSG_ID(evt->header) == gecko_evt_system_external_signal_id) //&& connection_Open_Flag == 1)
+	/*if(BGLIB_MSG_ID(evt->header) == gecko_evt_system_external_signal_id) //&& connection_Open_Flag == 1)
 	{
 		switch(state)
 		{
@@ -130,7 +131,30 @@ void __attribute__((optimize("O0"))) readAccel(struct gecko_cmd_packet* evt)
 				}
 				break;
 		}
+	}*/
+	int i =0;
+	while(i < 1000)
+	{
+		i++;
 	}
+	I2C1InitiateWrite(ACCEL_ADDR,0x01);
+	while(I2C_TRANSFER_DONE == 0);
+	I2C_TRANSFER_DONE = 0;
+	I2C1InitiateSeqRead(ACCEL_ADDR,6);
+	while(I2C_TRANSFER_DONE == 0);
+	I2C_TRANSFER_DONE = 0;
+	accel_buffer = getPtrToI2CWriteBuffer();
+	x = ((short)(accel_buffer[0]<<8 | accel_buffer[1])) >> 4;
+	y = ((short)(accel_buffer[2]<<8 | accel_buffer[3])) >> 4;
+	z = ((short)(accel_buffer[4]<<8 | accel_buffer[5])) >> 4;
+	cx = ((float) x / (float)(1<<11) * (float)(2))*9.807;
+	cy = ((float) y / (float)(1<<11) * (float)(2))*9.807;
+	cz = ((float) z / (float)(1<<11) * (float)(2))*9.807;
+}
+
+float getAccel()
+{
+	return cz;
 }
 
 

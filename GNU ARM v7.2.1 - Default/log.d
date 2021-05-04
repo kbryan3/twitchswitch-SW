@@ -76,15 +76,20 @@ log.o: ../log.c \
  ../scheduler.h \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_core.h \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_common.h \
+ ../accel.h ../i2c.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emdrv\sleep\inc/sleep.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_i2c.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\hardware\kit\common\drivers/i2cspm.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\hardware\kit\common\halconfig/i2cspmhalconfig.h \
+ ../oscillators.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_cmu.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_gpio.h \
+ ../timer.h \
+ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_letimer.h \
  ../gatt_db.h \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\protocol\bluetooth\ble_stack\inc\common/bg_gattdb_def.h \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\app\bluetooth\common\util/infrastructure.h \
- ../gecko_ble_errors.h ../timer.h \
- C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_letimer.h \
- C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_cmu.h \
- C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_gpio.h \
- ../oscillators.h ../irq.h \
- C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_i2c.h
+ ../gecko_ble_errors.h ../irq.h
 
 C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\hardware\kit\common\drivers/retargetserial.h:
 
@@ -244,6 +249,28 @@ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_cor
 
 C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_common.h:
 
+../accel.h:
+
+../i2c.h:
+
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emdrv\sleep\inc/sleep.h:
+
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_i2c.h:
+
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\hardware\kit\common\drivers/i2cspm.h:
+
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\hardware\kit\common\halconfig/i2cspmhalconfig.h:
+
+../oscillators.h:
+
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_cmu.h:
+
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_gpio.h:
+
+../timer.h:
+
+C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_letimer.h:
+
 ../gatt_db.h:
 
 C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\protocol\bluetooth\ble_stack\inc\common/bg_gattdb_def.h:
@@ -252,16 +279,4 @@ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\app\bluetooth\common\util
 
 ../gecko_ble_errors.h:
 
-../timer.h:
-
-C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_letimer.h:
-
-C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_cmu.h:
-
-C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_gpio.h:
-
-../oscillators.h:
-
 ../irq.h:
-
-C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_i2c.h:

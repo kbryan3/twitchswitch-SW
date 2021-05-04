@@ -17,6 +17,7 @@
 #include "native_gecko.h"
 #include "log.h"
 #include "scheduler.h"
+#include "accel.h"
 
 /* GATT database */
 #include "gatt_db.h"
@@ -42,7 +43,7 @@ extern uint8_t connection_Open_Flag; //flag for powering/taking temperature
 ///  @return void
 ///
 //*****************************************************************************
-void handle_ble_event(struct gecko_cmd_packet* evt);
+void handle_ble_event(struct gecko_cmd_packet* evt, uint8_t mode);
 
 //*****************************************************************************
 /// Places temperature value into the GATT Server Temp Characteristic

@@ -39,7 +39,7 @@ appPlugin: stack_bridge=false
     </characteristic>
     <characteristic id="accel_read" name="Acceleration" sourceId="custom.type" uuid="59fca41d-c01c-416a-a02f-f52635ac1aa1">
       <informativeText>Custom characteristic</informativeText>
-      <value length="2" type="hex" variable_length="false">0x00</value>
+      <value length="4" type="hex" variable_length="false">0x00</value>
       <properties indicate="true" indicate_requirement="optional" read="true" read_requirement="optional"/>
     </characteristic>
     <characteristic id="lift_reps" name="Reps" sourceId="custom.type" uuid="2886afd6-bfcc-437d-a95f-70f003ee41f2">

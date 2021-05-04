@@ -83,7 +83,7 @@ i2c.o: ../i2c.c ../i2c.h \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_letimer.h \
  ../scheduler.h \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_core.h \
- ../gatt_db.h \
+ ../accel.h ../gatt_db.h \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\protocol\bluetooth\ble_stack\inc\common/bg_gattdb_def.h \
  C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\app\bluetooth\common\util/infrastructure.h \
  ../gecko_ble_errors.h
@@ -261,6 +261,8 @@ C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_let
 ../scheduler.h:
 
 C:\Users\bryan\SimplicityStudio\v4_workspace\soc-empty\platform\emlib\inc/em_core.h:
+
+../accel.h:
 
 ../gatt_db.h:
 

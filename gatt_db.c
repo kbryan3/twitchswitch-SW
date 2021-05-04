@@ -122,11 +122,11 @@ GATT_DATA(const struct bg_gattdb_buffer_with_len	bg_gattdb_data_attribute_field_
 	.len=19,
 	.data={0x22,0x11,0x00,0xf2,0x41,0xee,0x03,0xf0,0x70,0x5f,0xa9,0x7d,0x43,0xcc,0xbf,0xd6,0xaf,0x86,0x28,}
 };
-uint8_t bg_gattdb_data_attribute_field_13_data[2]={0x00,0x00,};
+uint8_t bg_gattdb_data_attribute_field_13_data[4]={0x00,0x00,0x00,0x00,};
 GATT_DATA(const struct bg_gattdb_attribute_chrvalue	bg_gattdb_data_attribute_field_13 ) = {
 	.properties=0x22,
 	.index=4,
-	.max_len=2,
+	.max_len=4,
 	.data=bg_gattdb_data_attribute_field_13_data,
 };
 

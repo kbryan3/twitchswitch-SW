@@ -32,7 +32,9 @@ enum accel_read_state
 	WAIT_FOR_READ_ACCEL
 };
 
+extern uint8_t I2C_TRANSFER_DONE;
 uint8_t accelInit(struct gecko_cmd_packet* evt);
-void readAccel(struct gecko_cmd_packet* evt);
+void readAccel();
+float getAccel();
 
 #endif /* ACCEL_H_ */

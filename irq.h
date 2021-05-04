@@ -20,6 +20,7 @@
 #include "timer.h"
 #include "native_gecko.h"
 #include "scheduler.h"
+#include "accel.h"
 
 //global variable
 uint32_t underflow_counter;
